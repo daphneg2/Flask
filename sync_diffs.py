@@ -18,7 +18,6 @@ def sync_data(db_credentials, ids, output_file):
     cursor = con.cursor()
     sync_queires = open("sync.txt").read().split("\n")
     frames = {}
-    print("test")
     for i in range(len(ids)):
         get_sync_frame(cursor, ids[i], frames, sync_queires, i)
     with pd.ExcelWriter(output_file, engine='xlsxwriter') as writer:
