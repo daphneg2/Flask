@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="POST" action="/transformation_count">
+    <p>DB credentials: For example: ADAPTERCONF/ADAPTERCONF@10.234.38.117:1521/PLDACE11</p>
+    <input type="text" name="username" placeholder="username"/>
+    <input type="text" name="password" placeholder="password"/>
+    <input type="text" name="hostname" placeholder="hostname"/>
+    <input type="text" name="port" placeholder="port"/>
+    <input type="text" name="SID" placeholder="SID"/>
+    <p>Output file name: <input type="text" name="output_file"/></p>
+    <p>AH_ProVision<input type="checkbox" value="AH_ProVision" name="nms"></p>
+    <p>Ciena_Legacy<input type="checkbox" value="Ciena_Legacy" name="nms"></p>
+    <p>Cisco_EPNM (N4I/BNG)<input type="checkbox" value="Cisco_EPNM (N4I/BNG)" name="nms"></p>
+    <p>COC (Ciena One Control)<input type="checkbox" value="COC (Ciena One Control)" name="nms"></p>
+    <p>ECI_Fiberswitch<input type="checkbox" value="ECI_Fiberswitch" name="nms"></p>
+    <p>ECI_Metro<input type="checkbox" value="ECI_Metro" name="nms"></p>
+    <p>ECI_Provincial<input type="checkbox" value="ECI_Provincial" name="nms"></p>
+    <p>Ericsson_SOEM<input type="checkbox" value="Ericsson_SOEM" name="nms"></p>
+    <p>Fiberhome_OTNM2000<input type="checkbox" value="Fiberhome_OTNM2000" name="nms"></p>
+    <p>Fiberhome_UNM2000<input type="checkbox" value="Fiberhome_UNM2000" name="nms"></p>
+    <p>Huawei_MSAN_GMM<input type="checkbox" value="Huawei_MSAN_GMM" name="nms"></p>
+    <p>Huawei_MSAN_REG<input type="checkbox" value="Huawei_MSAN_REG" name="nms"></p>
+    <p>Huawei_Unified (CEN)<input type="checkbox" value="Huawei_Unified (CEN)" name="nms"></p>
+    <p>Huawei_Unified (DFON)<input type="checkbox" value="Huawei_Unified (DFON)" name="nms"></p>
+    <p>Huawei_Unified (MSAP)<input type="checkbox" value="Huawei_Unified (MSAP)" name="nms"></p>
+    <p>Netman_2020<input type="checkbox" value="Netman_2020" name="nms"></p>
+    <p>Nokia_CORE<input type="checkbox" value="Nokia_CORE" name="nms"></p>
+    <p>PIVOT<input type="checkbox" value="PIVOT" name="nms"></p>
+    <p>UTStarcom_Netman4k<input type="checkbox" value="UTStarcom_Netman4k" name="nms"></p>
+    <p>ZTE_CEN<input type="checkbox" value="ZTE_CEN" name="nms"></p>
+    <p>ZTE_Fiberswitch<input type="checkbox" value="ZTE_Fiberswitch" name="nms"></p>
+    <p>ZTE_TD_LTE<input type="checkbox" value="ZTE_TD_LTE" name="nms"></p>
+    <button type="submit" value="submit">Submit</button>
+</form>
+</body>
+</html>
