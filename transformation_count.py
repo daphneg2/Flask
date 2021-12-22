@@ -35,7 +35,7 @@ def create_layers(layers):
     return new_layers
 
 
-# this function
+# this function creates the frame for the NMS
 def get_frame(cursor, nms, frames, atrinet_queries, temp_queries, comments_queries, layers, index):
     atrinet_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in atrinet_queries]
     temp_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in temp_queries]
