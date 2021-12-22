@@ -52,7 +52,6 @@ def get_frame(cursor, nms, frames, atrinet_queries, temp_queries, comments_queri
 
 def run_fetchone_queries(cursor, queries):
     data = []
-    print("test")
     for i in range(len(queries)):
         cursor.execute(queries[i])
         data.append(cursor.fetchone()[0])
