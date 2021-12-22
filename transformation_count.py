@@ -11,12 +11,14 @@ def start():
         output_file += ".xlsx"
     con = connect.connect(db_credentials)
     cursor = con.cursor()
+    # gets the relevant queries
     atrinet_queries = open("atrinet.txt").read().split("\n")
     temp_queries = open("temp.txt").read().split("\n")
     comments_queries = open("comments.txt").read().split("\n")
     layers = create_layers(open("layers.txt").read().split("\n"))
     frames = {}
     for i in range(len(nms_list)):
+        # creates a data frame for each NMS chosen
         get_frame(cursor, nms_list[i], frames, atrinet_queries, temp_queries, comments_queries, layers, i)
     with pd.ExcelWriter(output_file, engine='xlsxwriter') as writer:
         for i in range(len(frames)):
@@ -33,8 +35,24 @@ def create_layers(layers):
     return new_layers
 
 
-def run_queries(cursor, queries):
+# this function
+def get_frame(cursor, nms, frames, atrinet_queries, temp_queries, comments_queries, layers, index):
+    atrinet_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in atrinet_queries]
+    temp_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in temp_queries]
+    comments_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in comments_queries]
+    atrinet_data = run_fetchone_queries(cursor, atrinet_queries)
+    temp_data = run_fetchone_queries(cursor, temp_queries)
+    comments_data = run_comments(cursor, comments_queries)
+    frame = {
+        'Layers': layers,
+        "Atrient_count": atrinet_data, "Temp_count": temp_data, "Comments in staging table": comments_data}
+    df = pd.DataFrame(frame)
+    frames[index] = df
+
+
+def run_fetchone_queries(cursor, queries):
     data = []
+    print("test")
     for i in range(len(queries)):
         cursor.execute(queries[i])
         data.append(cursor.fetchone()[0])
@@ -48,20 +66,6 @@ def run_comments(cursor, queries):
         ans = format_comments(cursor.fetchall())
         data.append(ans)
     return data
-
-
-def get_frame(cursor, nms, frames, atrinet_queries, temp_queries, comments_queries, layers, index):
-    atrinet_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in atrinet_queries]
-    temp_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in temp_queries]
-    comments_queries = [q.replace('%schema_name%', "MNGP_" + nms) for q in comments_queries]
-    atrinet_data = run_queries(cursor, atrinet_queries)
-    temp_data = run_queries(cursor, temp_queries)
-    comments_data = run_comments(cursor, comments_queries)
-    frame = {
-        'Layers': layers,
-        "Atrient_count": atrinet_data, "Temp_count": temp_data, "Comments in staging table": comments_data}
-    df = pd.DataFrame(frame)
-    frames[index] = df
 
 
 def format_comments(comments):
