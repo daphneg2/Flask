@@ -83,6 +83,6 @@ def format_comments(comments):
 def get_percentage(atrinet_data, temp_data):
     data = []
     for i in range(len(atrinet_data)):
-        percentage = (temp_data[i] / atrinet_data[i]) * 100 if atrinet_data[i] > 0 else 0
+        percentage = round((temp_data[i] / atrinet_data[i]) * 100, 2) if atrinet_data[i] > 0 else 0
         data.append(percentage)
     return data
