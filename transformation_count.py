@@ -43,9 +43,11 @@ def get_frame(cursor, nms, frames, atrinet_queries, temp_queries, comments_queri
     atrinet_data = run_fetchone_queries(cursor, atrinet_queries)
     temp_data = run_fetchone_queries(cursor, temp_queries)
     comments_data = run_comments(cursor, comments_queries)
+    percentage = get_percentage(atrinet_data, temp_data)
     frame = {
         'Layers': layers,
-        "Atrient_count": atrinet_data, "Temp_count": temp_data, "Comments in staging table": comments_data}
+        "Atrient_count": atrinet_data, "Temp_count": temp_data, 'Percentage (Temp_count/Atrient_count)': percentage,
+        "Comments in staging table": comments_data}
     df = pd.DataFrame(frame)
     frames[index] = df
 
@@ -76,3 +78,11 @@ def format_comments(comments):
         to_add = count + " | " + comment
         new_comments.append(to_add)
     return new_comments
+
+
+def get_percentage(atrinet_data, temp_data):
+    data = []
+    for i in range(len(atrinet_data)):
+        percentage = (temp_data[i] / atrinet_data[i]) * 100 if atrinet_data[i] > 0 else 0
+        data.append(percentage)
+    return data
