@@ -1,0 +1,1 @@
+select count(*),syncdifftype.name,syncdifftypeid,provisionstatusid,provisionstatus.name from syncdiff,syncdifftype,provisionstatus where syncdiff2requestinstance = %sync_id% and SYNCDIFF2SYNCDIFFTYPE =syncdifftypeid and syncdiff2provisionstatus =provisionstatusid group by syncdifftype.name,syncdifftypeid,provisionstatusid,provisionstatus.name

@@ -1,0 +1,9 @@
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_node group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_shelf group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_card group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atr_phy_port group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_slot group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_lg_ports group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_circuits group by CTRL_COmments order by 1 asc
+select count(CTRL_COmments), CTRL_COmments from %schema_name%.stg_e_atrinet_number group by CTRL_COmments order by 1 asc
+select count(*), CTRL_COmments from %schema_name%.stg_e_atrinet_crossconnect group by CTRL_COmments order by 1 asc
