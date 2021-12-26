@@ -1,6 +1,6 @@
 This is an explanation how to use this tool:
 
-Before starting:
+Before starting (cannot download on Amdocs network):
     Installations:
     1. python 3.10
     2. packages:
