@@ -1,3 +1,4 @@
+import os
 from flask import *
 import pandas as pd
 import connect
@@ -16,7 +17,7 @@ def start():
 def sync_data(db_credentials, ids, output_file):
     con = connect.connect(db_credentials)
     cursor = con.cursor()
-    sync_queires = open("sync.txt").read().split("\n")
+    sync_queires = open(os.path.abspath("sync.txt")).read().split("\n")
     frames = {}
     for i in range(len(ids)):
         get_sync_frame(cursor, ids[i], frames, sync_queires, i)

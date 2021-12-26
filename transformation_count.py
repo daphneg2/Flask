@@ -1,3 +1,4 @@
+import os.path
 from flask import *
 import pandas as pd
 import connect
@@ -12,9 +13,9 @@ def start():
     con = connect.connect(db_credentials)
     cursor = con.cursor()
     # gets the relevant queries
-    atrinet_queries = open("atrinet.txt").read().split("\n")
-    temp_queries = open("temp.txt").read().split("\n")
-    comments_queries = open("comments.txt").read().split("\n")
+    atrinet_queries = open(os.path.abspath("atrinet.txt")).read().split("\n")
+    temp_queries = open(os.path.abspath("temp.txt")).read().split("\n")
+    comments_queries = open(os.path.abspath("comments.txt")).read().split("\n")
     layers = create_layers(open("layers.txt").read().split("\n"))
     frames = {}
     for i in range(len(nms_list)):
