@@ -8,6 +8,8 @@ def start():
     db_credentials = connect.get_db_creds()
     nms_list = request.form.getlist('nms')
     output_file = request.form['output_file']
+    if not output_file:
+        output_file = "no_file_name.xlsx"
     if ".xlsx" not in output_file:
         output_file += ".xlsx"
     con = connect.connect(db_credentials)

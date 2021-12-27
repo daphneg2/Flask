@@ -8,6 +8,8 @@ def start():
     db_credentials = connect.get_db_creds()
     output_file = request.form['output_file']
     ids = request.form.getlist('input_text[]')
+    if not output_file:
+        output_file = "no_file_name.xlsx"
     if ".xlsx" not in output_file:
         output_file += ".xlsx"
     sync_data(db_credentials, ids, output_file)
