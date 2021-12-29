@@ -33,4 +33,4 @@ Before starting (cannot download on Amdocs network):
 Adding new function:
     After adding the route to the app.py we need to create a new python file and write all our code there
     
-    * Note that the queries might take a while, depends on the NMS.
+* Note that the queries might take a while, depends on the NMS.
