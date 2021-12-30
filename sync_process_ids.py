@@ -22,20 +22,14 @@ def start():
     return output_file
 
 
-
 def format_ids(ids):
-    data = {'sync process id': [], 'name': [], 'start date': [], 'finish date': [], 'provision status': [], 'failure text': []}
+    data = {'sync process id': [], 'name': [], 'start date': [], 'finish date': [], 'provision status': [],
+            'failure text': []}
     for i in range(len(ids)):
-        id = ids[i][0]
-        name = ids[i][1]
-        start = ids[i][2]
-        end = ids[i][3]
-        status = ids[i][4]
-        failure = ids[i][5]
-        data['sync process id'].append(id)
-        data['name'].append(name)
-        data['start date'].append(start)
-        data['finish date'].append(end)
-        data['provision status'].append(status)
-        data['failure text'].append(failure)
+        data['sync process id'].append(ids[i][0])
+        data['name'].append(ids[i][1])
+        data['start date'].append(ids[i][2])
+        data['finish date'].append(ids[i][3])
+        data['provision status'].append(ids[i][4])
+        data['failure text'].append(ids[i][5])
     return data

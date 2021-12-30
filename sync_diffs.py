@@ -58,14 +58,9 @@ def run_sync_queries(cursor, sync_queries):
 def format_sync(syncs):
     new_sync = {'count': [], 'name': [], 'sync_diff_type': [], 'provision_status': [], 'status': []}
     for i in range(len(syncs)):
-        count = syncs[i][0]
-        name = syncs[i][1]
-        sync_diff_type = syncs[i][2]
-        provision_stat_id = syncs[i][3]
-        status = syncs[i][4]
-        new_sync['count'].append(count)
-        new_sync['name'].append(name)
-        new_sync['sync_diff_type'].append(sync_diff_type)
-        new_sync['provision_status'].append(provision_stat_id)
-        new_sync['status'].append(status)
+        new_sync['count'].append(syncs[i][0])
+        new_sync['name'].append(syncs[i][1])
+        new_sync['sync_diff_type'].append(syncs[i][2])
+        new_sync['provision_status'].append(syncs[i][3])
+        new_sync['status'].append(syncs[i][4])
     return new_sync
