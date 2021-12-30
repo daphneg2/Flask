@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="POST" action="/sync_process_ids">
+    <p>DB credentials: For example: ADAPTERCONF/ADAPTERCONF@10.234.38.117:1521/PLDACE11</p>
+    <input type="text" name="username" placeholder="username" required/> <b> / </b>
+    <input type="text" name="password" placeholder="password" required/> <b> @ </b>
+    <input type="text" name="hostname" placeholder="hostname" required/> <b> : </b>
+    <input type="text" name="port" placeholder="port" required/> <b> / </b>
+    <input type="text" name="SID" placeholder="SID" required/>
+    <p>Output file name: <input type="text" name="output_file" required/></p>
+    <button type="submit" value="submit">Submit</button>
+</form>
+</body>
+</html>

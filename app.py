@@ -3,6 +3,7 @@ from flask import *
 import cx_Oracle
 import transformation_count
 import sync_diffs
+import sync_process_ids
 
 app = Flask(__name__)
 IS_DEV = app.env == 'development'
@@ -29,6 +30,15 @@ def sync_ids():
         path = os.path.abspath(output_file)
         return send_file(path)
     return render_template('sync_ids.html')
+
+
+@app.route('/sync_process_ids/',  methods=['GET', 'POST'])
+def process_ids():
+    if request.method == 'POST':
+        output_file = sync_process_ids.start()
+        path = os.path.abspath(output_file)
+        return send_file(path)
+    return render_template('sync_process_ids.html')
 
 
 if __name__ == '__main__':
